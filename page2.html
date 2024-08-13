@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Page 2</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, pink, white);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background-color: pink;
+            border-radius: 50%;
+            animation: float 7s ease-in-out infinite;
+            z-index: 1;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1200px);
+                opacity: 0;
+            }
+        }
+        .cake {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+        .cake img {
+            width: 250px;
+            height: auto;
+        }
+        .wish {
+            font-size: 24px;
+            color: black;
+            text-align: center;
+            border-right: 2px solid black;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 4s steps(30, end) forwards;
+            z-index: 2;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cake GIF and Wish -->
+    <div class="cake">
+        <img src="png-transparent-birthday-cake-cake-baked-goods-food-baking-thumbnail-removebg-preview.png" >
+    </div>
+
+    <div class="wish">
+        Happy Birthday!
+    </div>
+
+    <!-- Balloons -->
+    <script>
+        const colors = ['#FF69B4', '#FFD700', '#ADFF2F', '#FF4500', '#1E90FF', '#DA70D6'];
+        for (let i = 0; i < 10; i++) {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = `${Math.random() * 100}vw`;
+            balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            balloon.style.animationDuration = `${Math.random() * 3 + 5}s`;
+            document.body.appendChild(balloon);
+        }
+    </script>
+
+</body>
+</html>
